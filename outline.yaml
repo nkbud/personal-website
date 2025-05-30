@@ -1,0 +1,119 @@
+site:
+  title: "Nicholas Budzban — AI Educator"
+  hero:
+    headline: "Researching simple and general solutions enabled by new technology"
+    subheadline: "What can exist, shall exist"
+
+sections:
+
+  projects:
+    heading: "Projects"
+    items:
+      - slug: oioio
+        title: "oioio: Content Generation Pipeline"
+        blurb: "A simple and modular pipeline for digital content generation"
+      - slug: portfolio-manager
+        title: "portfolio-manager: Agentic Equity Management"
+        blurb: "24/7 active management of your financial equities"
+      - slug: property-evaluator
+        title: "property-evaluator: Comprehensive Property Valuation"
+        blurb: "On-demand property analysis for prospective residents and investors"
+      - slug: housing-coop
+        title: "housing-coop: Cooperative Housing Marketplace"
+        blurb: "Smart contracts and governance UI for fractional tenant ownership."
+      - slug: nutritional-web
+        title: "nutritional-web: Curated Content Diet"
+        blurb: "For you, from you"
+      - slug: deep-choice
+        title: "deep-choice: Adaptive Sequential Search"
+        blurb: "Guided searches into the deep"
+
+  services:
+    heading: "Services"
+    items:
+      - slug: learn
+        title: "Learn"
+        blurb: "I can teach you what I know"
+      - slug: build
+        title: "Build"
+        blurb: "I can build you what I can build"
+      - slug: manage
+        title: "Manage"
+        blurb: "I can help you manage and maintain"
+
+  research:
+    heading: "Research"
+    items:
+      - slug: research-agent
+        title: "Research Agent: Recursive Self-Researching Experts"
+        blurb: "Is there an algorithm for expertise?"
+      - slug: effective-decisions
+        title: "Effective Decisions: Testable Hypotheses"
+        blurb: "How much free will do you actually have?"
+      - slug: affordable-living
+        title: "Cost-Benefit Analysis of Life Resources"
+        blurb: "How much does it cost to live?"
+
+  hobbies:
+    heading: "Hobbies"
+    items:
+      - slug: artify
+        title: "Artify: Automating Life’s Art"
+        blurb: "What can be generated from your own data?"
+      - slug: alternative-architecture
+        title: "Alternative Architecture: Exploring Other Angles"
+        blurb: "What does a non-90 degree world look like?"
+      - slug: up-cycling
+        title: "Up-Cycling"
+        blurb: "Is there a function from trash to treasure?"
+
+  tutorials:
+    heading: "Tutorials"
+    items:
+      - slug: chat-bot
+        title: "How-to: Chat Bot"
+        blurb: "Microsoft Teams Bot, Telegram Mini App, ..."
+      - slug: local-cloud
+        title: "How-to: Local Cloud"
+        blurb: "Containers, Orchestrators, and Single Instances"
+      - slug: local-agent
+        title: "How-to: Local Agent"
+        blurb: "Desktop Apps, Models, Memory, Tools, and Flow"
+      - slug: cloud-agent
+        title: "How-to: Cloud Agent"
+        blurb: "Web Apps, Models, Memory, Tools, and Flow"
+
+  technology:
+    heading: "Tech"
+    items:
+      - slug: communications-and-networking
+        title: "Communications and Networking"
+        blurb: "Theory, Messages, Media, Transmitters, Receivers, and Protocols"
+      - slug: storage-and-data
+        title: "Storage and Data"
+        blurb: "Structure, Information, Transactions, Distribution, Consistency, and Persistence"
+      - slug: language-and-code
+        title: "Language and Code"
+        blurb: "Grammar, Syntax, References, Variables, Functions, and Control"
+      - slug: context-and-generation
+        title: "Context and Generation"
+        blurb: "Conditional Probability, Autoregression, Retrieval, Reasoning, and Recursion"
+
+  academics:
+    heading: "Academics"
+    items:
+      - slug: bayesian-networks
+        title: "Bayesian Networks"
+        blurb: "Organizing the influences of belief"
+      - slug: sparse-embeddings
+        title: "Sparse Embeddings"
+        blurb: "Decomposing the mixtures of meaning"
+      - slug: variational-autoencoders
+        title: "Sparse Embeddings"
+        blurb: "Decomposing the mixtures of meaning"
+      - slug: intelligent-control
+        title: "Intelligent Control"
+        blurb: "AI Control Theory"
+      - slug: orthogonal-expansions
+        title: "Orthogonal Expansions"
+        blurb: "Generating maximum complexity, one step at a time"
