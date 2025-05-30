@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* Light mode background */
+    --foreground: 222.2 84% 4.9%; /* Light mode text */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262.1 83.3% 57.8%; /* Purple */
+    --primary-foreground: 0 0% 98%; /* White text on primary */
+    --primary-light: 262.1 90% 65%; /* Lighter purple for dark mode links */
+    --secondary: 323.3 86.7% 58.4%; /* Pink */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%; /* Red */
+    --destructive-foreground: 0 0% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262.1 83.3% 57.8%; /* Purple for focus rings */
+    --radius: 0.75rem; /* Slightly larger radius */
+  }
+ 
+  .dark {
+    --background: 224 71.4% 4.1%; /* Dark mode background - very dark blue */
+    --foreground: 210 20% 98%; /* Dark mode text - light gray */
+    --card: 220 70% 7%; /* Slightly lighter dark card */
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 262.1 83.3% 62.8%; /* Slightly brighter purple for dark mode */
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 262.1 90% 70%; 
+    --secondary: 323.3 86.7% 62.4%; /* Slightly brighter pink for dark mode */
+    --secondary-foreground: 0 0% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 72.2% 50.6%; /* Darker red for destructive actions */
+    --destructive-foreground: 0 0% 98%;
+    --border: 215 20% 25%; /* Slightly lighter border for dark mode */
+    --input: 215 27.9% 16.9%;
+    --ring: 262.1 83.3% 62.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    @apply antialiased;
+  }
+  /* Custom scrollbar for webkit browsers */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50 dark:bg-muted/30;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/60;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Prose styles for Markdown */
+.prose img, .prose video {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prose code::before, .prose code::after {
+  content: none;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+[data-radix-popper-content-wrapper] {
+  border-radius: var(--radius);
+}
+
+/* For the fade-out effect on PostCard content preview */
+.content-fade::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3rem; /* Adjust height of fade */
+  background: linear-gradient(to bottom, transparent, hsl(var(--card)));
+  pointer-events: none; /* Allows text selection through the gradient */
+}
+
+.dark .content-fade::after {
+   background: linear-gradient(to bottom, transparent, hsl(var(--card)));
+}
