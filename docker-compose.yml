@@ -1,9 +1,4 @@
 # Docker Compose for local development
-version: "3.8"
-
-# Load environment variables from .env.local
-x-environment: &default-env
-  env_file: .env.local
 
 services:
   # Frontend React application

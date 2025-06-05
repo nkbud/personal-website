@@ -31,25 +31,50 @@ A full-stack personal website built with React, Vite, and Supabase, deployable l
 
 ### Development Workflow
 
-#### Starting Services
+#### Using the Development Helper Script
+
+For convenience, use the included `dev.sh` script:
+
 ```bash
-# Start all services in the background
-docker-compose up -d
+# Make the script executable
+chmod +x dev.sh
 
-# View logs for all services
-docker-compose logs -f
+# Start all services
+./dev.sh start
 
-# View logs for specific service
-docker-compose logs -f frontend
+# Stop all services
+./dev.sh stop
+
+# View logs
+./dev.sh logs
+
+# Reset everything (removes all data)
+./dev.sh reset
+
+# See all available commands
+./dev.sh help
 ```
 
-#### Stopping Services
+#### Manual Docker Compose Commands
+
 ```bash
+# Start all services in the background
+docker compose up -d
+
+# View logs for all services
+docker compose logs -f
+
+# View logs for specific service
+docker compose logs -f frontend
+
 # Stop all services
-docker-compose down
+docker compose down
 
 # Stop and remove volumes (reset database)
-docker-compose down -v
+docker compose down -v
+
+# Rebuild containers
+docker compose build --no-cache
 ```
 
 #### Hot Reloading
@@ -96,28 +121,70 @@ For production deployment, see the [supabase/](./supabase/) directory which cont
 
 ### Troubleshooting
 
+#### Prerequisites Check
+```bash
+# Validate your setup
+./dev.sh validate
+```
+
 #### Port Conflicts
 If you encounter port conflicts, you can modify the ports in `docker-compose.yml`:
 - Frontend: Change `5173:5173` to `[new-port]:5173`
 - Supabase API: Change `8000:8000` to `[new-port]:8000`
 - Supabase Studio: Change `3000:3000` to `[new-port]:3000`
+- Database: Change `5432:5432` to `[new-port]:5432`
 
 #### Database Issues
 ```bash
-# Reset the database
-docker-compose down -v
-docker-compose up
+# Reset the database completely
+./dev.sh reset
 
 # Access database directly
-docker-compose exec db psql -U postgres
+docker compose exec db psql -U postgres
+
+# Check database status
+docker compose logs db
 ```
 
 #### Container Issues
 ```bash
-# Rebuild containers
-docker-compose down
-docker-compose build --no-cache
-docker-compose up
+# Rebuild containers from scratch
+docker compose down
+docker compose build --no-cache
+docker compose up
+
+# Check container status
+docker compose ps
+
+# View detailed logs
+docker compose logs -f [service-name]
+```
+
+#### Environment Variables
+Make sure you have a `.env` file in the root directory. Copy from `.env.example`:
+```bash
+cp .env.example .env
+```
+
+#### Resource Issues
+If containers are failing due to memory constraints:
+- Increase Docker Desktop memory allocation (recommended: 4GB+)
+- Close other resource-intensive applications
+- Try starting services individually:
+  ```bash
+  docker compose up db        # Start database first
+  docker compose up kong      # Then API gateway
+  docker compose up frontend  # Finally frontend
+  ```
+
+#### Service Health Checks
+Check if services are healthy:
+```bash
+# View service status
+docker compose ps
+
+# Check specific service health
+docker compose exec [service-name] healthcheck
 ```
 
 ## 📝 Contributing
